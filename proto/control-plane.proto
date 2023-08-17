@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "client/proto";
+
+service ControlPlane {
+    rpc DeviceRequest(Options) returns (DeviceResponse);
+}
+
+message Options {
+    string device_name = 1;
+    string command = 2;
+}
+
+message DeviceResponse {
+    string response = 1;
+}
